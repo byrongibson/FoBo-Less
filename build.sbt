@@ -2,7 +2,7 @@ name := "FoBo-Less"
 
 organization  := "net.liftmodules"
 
-version := "0.1-SNAPSHOT"
+version := "0.3-SNAPSHOT"
 
 //scalaVersion  := "2.9.1"
 
@@ -20,14 +20,14 @@ logLevel := Level.Info
 //## the src dir as FoBo uses yui to add both min and uncompressed css 
 //## files to the build.
 //#########################################################################
-//tbVerPath := "2.0.4"
+//tbVerPath := "2.1.0"
 seq(lessSettings:_*) 
  
 (sourceDirectories in (Compile, LessKeys.less)) <<= (sourceDirectory in Compile) { 
   srcDir =>
     Seq(
-      srcDir / "less" / "bootstrap" / "2.0.4"  / "overrides",
-      srcDir / "less" / "bootstrap" / "2.0.4"  / "origin"
+      srcDir / "less" / "bootstrap" / "2.1.0"  / "overrides",
+      srcDir / "less" / "bootstrap" / "2.1.0"  / "origin"
     )
 }
 
@@ -35,7 +35,7 @@ seq(lessSettings:_*)
 
 (includeFilter in (Compile, LessKeys.less)) := ("bootstrap.less" | "responsive.less": FileFilter)
 
-(resourceManaged in (Compile, LessKeys.less)) <<= (crossTarget in Compile)(_ / "classes" / "toserve" / "fobo" / "bootstrap" / "2.0.4" / "css" )
+(resourceManaged in (Compile, LessKeys.less)) <<= (crossTarget in Compile)(_ / "classes" / "toserve" / "fobo" / "bootstrap" / "2.1.0" / "css" )
 
 
 
